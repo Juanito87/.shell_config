@@ -38,7 +38,7 @@ function ssh (){
     # - Checks if tmux conf is present in specified route
     # - Attachs or connnects to tmux
     # - If tmux is not present, starts a normal shell, and sends a goodbye message once you disconnect
-       /usr/bin/ssh -t "$@" "if command -v tmux &>/dev/null; then if [ -f \$HOME/.juanito_rconfig/.tmux.conf ]; then tmux -f \$HOME/.juanito_rconfig/.tmux.conf new -A -s $(whoami) &> /dev/null; else tmux new -A -s $(whoami); fi; else \$SHELL -l; echo "Fin de la sesión"; fi;"
+       /usr/bin/ssh -t "$@" "if command -v tmux &>/dev/null; then if [ -f \$HOME/.juanito_rc/.tmux.conf ]; then tmux -f \$HOME/.juanito_rc/.tmux.conf new -A -s $(whoami) &> /dev/null; else tmux new -A -s $(whoami); fi; else \$SHELL -l; echo "Fin de la sesión"; fi;"
     }
 
 #Enabling bash completion
@@ -61,8 +61,8 @@ export FZF_DEFAULT_OPTS='--height 96% --reverse --preview "cat {}"'
 
 # Enabling tmux completion
 # shellcheck disable=SC1091
-source .tmux/completion/completions/tmux
+source $HOME/.tmux/completion/completions/tmux
 
 # Enabling prompt
 # shellcheck disable=SC1091
-source .prompt/prompt-gruvbox.sh
+source $HOME/.prompt/prompt-gruvbox.sh
