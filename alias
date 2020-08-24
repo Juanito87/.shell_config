@@ -64,8 +64,9 @@ alias trc='tmux source-file ~/.tmux.conf'
 alias rrrc='source ~/.juanito_rconfig/.bashrc'
 alias rtrc='tmux source-file ~/.juanito_rconfig/.tmux.conf'
 
-# Vim alias for remote instaces
+# Vim alias for remote instaces and sudoedit
 alias rvim='vim -u $HOME/.juanito_rconfig/.vim/vimrc'
+alias svim='sudoedit'
 
 # navigation
 alias ..='cd ..'
