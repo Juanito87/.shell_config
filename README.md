@@ -1,2 +1,10 @@
 # shell-config
-This repo holds shell conf for remote and local host. I'm separating config into diferent repos, in order to be able to use vim-fugitive in the config files, and avoiding de repo in home using the bare repo method.
+This repo holds shell configurations:
+
+* Personalized commands
+* Variables
+* Alias
+* Shell specific configurations
+
+This structure helps to manage repos withouth having to be a bare one,
+allowing the use of tools like vim-fugitive or the branch info in prompt.
