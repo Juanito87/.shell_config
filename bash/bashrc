@@ -68,8 +68,7 @@ source "$HOME"/.tmux/completion/completions/tmux
 
 # Enabling prompt
 # shellcheck disable=SC1091 disable=1090
-# source "$HOME"/.prompt/prompt-gruvbox.sh
-source ~/Repo/terminal-config/.shell_config/prompt/prompt-gruvbox.sh
+source "$HOME"/.shell_config/prompt/prompt-gruvbox.sh
 
 # Calling config files
 # shellcheck disable=1090

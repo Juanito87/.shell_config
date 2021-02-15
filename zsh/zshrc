@@ -19,7 +19,7 @@ setopt kshglob
 unsetopt nomatch
 
 # Setting prompt
-source ~/.prompt/prompt-dracula.sh
+source ~/.shell_config/prompt/prompt-dracula.sh
 
 # FZF
 # Auto-completion
