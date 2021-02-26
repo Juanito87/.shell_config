@@ -29,21 +29,13 @@ alias sudo='\sudo '
 alias ls='better_ls'
 alias history='better_history'
 
-# Add an "alert" Alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Setting Alias for git, to manage dotfiles in $HOME with autocomplete
 ## git use __git_main for autocomplete git subcommands are _git_subcomand
 alias gitdot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gitdotsm='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME submodule'
 alias gitdotsma='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME submodule add'
 alias gitdotsmu='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME submodule update --remote --merge'
-alias gitrdot='/usr/bin/git --git-dir=$HOME/.juanito_rconfig/.cfg/ --work-tree=$HOME/.juanito_rconfig'
-alias gitrdotsm='/usr/bin/git --git-dir=$HOME/.juanito_rconfig/.cfg/ --work-tree=$HOME/.juanito_rconfig submodule'
-alias gitrdotsma='/usr/bin/git --git-dir=$HOME/.juanito_rconfig/.cfg/ --work-tree=$HOME/.juanito_rconfig submodule add'
-alias gitrdotsmu='/usr/bin/git --git-dir=$HOME/.juanito_rconfig/.cfg/ --work-tree=$HOME/.juanito_rconfig submodule update --remote --merge'
-alias sshdot='/usr/bin/git --git-dir=$HOME/.sshcfg/ --work-tree=$HOME/.ssh'
+
 # shellcheck disable=SC2009
 if [[ $(ps -p $$ | grep sh | awk '{print $(NF)}') = "$shell" ]]; then
     if [ -f "/usr/share/bash-completion/completions/git" ]; then
@@ -67,14 +59,9 @@ alias tks='tmux kill-session -t'
 alias tkw='tmux kill-window -t'
 
 # Reload rc files local/remote
-alias rrc='source ~/.bashrc'
+alias brc='source ~/.bashrc'
 alias zrc='source ~/.zshrc'
 alias trc='tmux source-file ~/.tmux.conf'
-alias rrrc='source ~/.juanito_rconfig/.bashrc'
-alias rtrc='tmux source-file ~/.juanito_rconfig/.tmux.conf'
-
-# Vim Alias for remote instaces
-alias rvim='vim -u $HOME/.juanito_rconfig/.vim/vimrc'
 
 # navigation
 alias ..='cd ..'

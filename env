@@ -23,6 +23,10 @@ export PATH=~/.shell_config/commands:$PATH
 export TF_LOG=TRACE
 export TF_LOG_PATH="terraform.txt"
 
+# GO PATH
+export GOPATH=$HOME/go
+export PATH=~/go/bin:$PATH
+
 # SSH users
 export EDU_SSH_USER0="soporte"
 export EDU_SSH_USER1="root"

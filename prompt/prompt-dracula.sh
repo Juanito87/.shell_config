@@ -51,20 +51,75 @@ function __promptline_ps1 {
   # close sections
   printf "%s" "${reset_bg}${sep}$reset$space"
 }
-function __promptline_vcs_branch {
-  local branch
-  local branch_symbol=" "
 
-  # git
-  if hash git 2>/dev/null; then
-    if branch=$( { git symbolic-ref --quiet HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
-      branch=${branch##*/}
-      printf "%s" "${branch_symbol}${branch:-unknown}"
-      return
-    fi
-  fi
-  return 1
+function __promptline_vcs_branch {
+git_symbol_synced=''
+git_symbol_unpushed=' ▲'
+git_symbol_unpulled=' ▼'
+git_symbol_unpushedunpulled=' ●'
+git_symbol_dirty=' □'
+git_symbol_dirty_unpushed=' △'
+git_symbol_dirty_unpulled=' ▽'
+git_symbol_dirty_unpushedunpulled=' ○'
+git_branch_symbol=" "
+
+    if ( which git > /dev/null 2>&1 ); then
+
+        ## CHECK IF IN A GIT REPOSITORY, OTHERWISE SKIP
+        local branch=$(git branch 2> /dev/null |\
+            sed -n '/^[^*]/d;s/*\s*\(.*\)/\1/p')
+
+        if [[ -n "$branch" ]]; then
+
+            ## GET GIT STATUS
+            ## This information contains whether the current branch is
+            ## ahead, behind or diverged (ahead & behind), as well as
+            ## whether any file has been modified locally (is dirty).
+            ## --porcelain: script friendly output.
+            ## -b:          show branch tracking info.
+            ## -u no:       do not list untracked/dirty files
+            ## From the first line we get whether we are synced, and if
+            ## there are more lines, then we know it is dirty.
+            ## NOTE: this requires that you fetch your repository,
+            ##       otherwise your information is outdated.
+            local is_dirty=false &&\
+                [[ -n "$(git status --porcelain)" ]] &&\
+                is_dirty=true
+            local is_ahead=false &&\
+                [[ "$(git status --porcelain -u no -b)" == *"ahead"* ]] &&\
+                is_ahead=true
+            local is_behind=false &&\
+                [[ "$(git status --porcelain -u no -b)" == *"behind"* ]] &&\
+                is_behind=true
+
+            ## SELECT SYMBOL
+            if   $is_dirty && $is_ahead && $is_behind; then
+                local symbol=$git_symbol_dirty_unpushedunpulled
+            elif $is_dirty && $is_ahead; then
+                local symbol=$git_symbol_dirty_unpushed
+            elif $is_dirty && $is_behind; then
+                local symbol=$git_symbol_dirty_unpulled
+            elif $is_dirty; then
+                local symbol=$git_symbol_dirty
+            elif $is_ahead && $is_behind; then
+                local symbol=$git_symbol_unpushedunpulled
+            elif $is_ahead; then
+                local symbol=$git_symbol_unpushed
+            elif $is_behind; then
+                local symbol=$git_symbol_unpulled
+            else
+                local symbol=$git_symbol_synced
+            fi
+
+            ## RETURN STRING
+            echo "$git_branch_symbol$branch$symbol"
+            fi
+fi
+## DEFAULT
+echo ""
+return 1
 }
+
 function __promptline_cwd {
   local dir_limit="3"
   local truncation="⋯"
