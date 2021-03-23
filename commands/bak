@@ -35,7 +35,7 @@ else
                time=$(date +%d-%m-%y_%H:%M)
                # Copy and preserve permitions
                # shellcheck disable=2225
-               cp -p "$param" "$time".bak"$param" >&2
+               cp -p "$param" "bak_$time-$param" >&2
                if [ $r -eq 1 ]
                then
                    rm "$param"
