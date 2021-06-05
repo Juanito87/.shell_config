@@ -28,16 +28,16 @@ if [[ $DISPLAY ]] || [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; the
 fi
 
 # SSH for tmux test, still need to figure out how to return empty if no tmux found on remote
-# function ssh (){
-#     # This one liner do:
-#     # - Checks if tmux is present
-#     # - Checks if tmux conf is present in specified route
-#     # - Attachs or connnects to tmux
-#     # - If tmux is not present, starts a normal shell, and sends a goodbye message once you disconnect
-# # shellcheck disable=SC2034
-# # cf=".juanito_rc"
-#        /usr/bin/ssh -t "$@" "if command -v tmux &>/dev/null; then if [ -f \$HOME/\"$cf\"/.tmux.conf ] &>/dev/null; then tmux -f \$HOME/\"$cf\"/.tmux.conf new -a -s $(whoami) &> /dev/null; else tmux new -a -s $(whoami); fi; else \$SHELL -l; echo "Fin de la sesión"; fi;"
-#     }
+function ssh (){
+    # This one liner do:
+    # - Checks if tmux is present
+    # - Checks if tmux conf is present in specified route
+    # - Attachs or connnects to tmux
+    # - If tmux is not present, starts a normal shell, and sends a goodbye message once you disconnect
+# shellcheck disable=SC2034
+       # /usr/bin/ssh "$@" -t -- /bin/sh -c "if command -v tmux &>/dev/null; then if [ -f \$HOME/.tmux.conf ] &>/dev/null; then tmux -f \$HOME/.tmux.conf new -a -s $(whoami) &> /dev/null; else tmux new -a -s $(whoami); fi; else \$SHELL -l; echo "Fin de la sesión"; fi;"
+       /usr/bin/ssh "$@" -t -- /bin/sh -c "if command -v tmux &>/dev/null || [ -f $HOME/.tmux.conf ] &>/dev/null || tmux -f $HOME/.tmux.conf new -a -s $(whoami) &> /dev/null || tmux new -s $(whoami) || $SHELL -l"
+    }
 
 #Enabling bash completion
 if ! shopt -oq posix; then
