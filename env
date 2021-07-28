@@ -30,3 +30,6 @@ export PATH=~/go/bin:$PATH
 # SSH users
 export EDU_SSH_USER0="soporte"
 export EDU_SSH_USER1="root"
+
+# Python env
+# export
