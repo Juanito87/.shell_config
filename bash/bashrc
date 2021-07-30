@@ -52,10 +52,10 @@ fi
 
 # Auto-completion
 # shellcheck disable=SC1090
-[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "$HOME"/.fzf/shell/completion.bash 2> /dev/null
 # Key bindings
 # shellcheck disable=SC1090
-source "$HOME/.fzf/shell/key-bindings.bash"
+source "$HOME"/.fzf/shell/key-bindings.bash
 
 # Enabling tmux completion
 # shellcheck disable=SC1091 disable=1090
@@ -63,7 +63,11 @@ source "$HOME"/.tmux/completion/completions/tmux
 
 # Enabling prompt
 # shellcheck disable=SC1091 disable=1090
-source "$HOME"/.shell_config/prompt/prompt-gruvbox.sh
+if [[ $USER == root ]]; then
+    source "$HOME"/.shell_config/prompt/prompt-dracula.sh
+else
+    source "$HOME"/.shell_config/prompt/prompt-gruvbox.sh
+fi
 
 # Calling config files
 # shellcheck disable=1090
@@ -75,6 +79,15 @@ do
    fi
 done
 
+# Calling custom commands
+ shellcheck disable=1090
+for f in "$HOME"/.shell_config/commands/*;
+do
+   if [ -f "$f" ]
+   then
+       source "$f";
+   fi
+done
 
 # Terraform settings
 complete -C /usr/bin/terraform terraform

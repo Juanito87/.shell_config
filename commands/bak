@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Set global variables
 # Number of files to process
@@ -43,6 +42,7 @@ else
             done
     # fi
 fi
+exit 0
 }
 
 OPTIND=1
@@ -69,4 +69,3 @@ shift "$((OPTIND-1))"
 
 # Call main function
 bak "$@"
-exit 0

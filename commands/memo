@@ -1,10 +1,22 @@
 #!/bin/bash
 
+show_help() {
+ cat << EOF
+ Usage: memo [PARAMETER]
+ Show in fzf for easier view the info on the defined alias or custom commands
+
+EOF
+}
+
 function memo()
 {
-# Telling closing condition
-printf "Presione ESC para finalizar\n"
-# Check that there is only one parameter
+if [ "$#" -eq 0 ]
+then
+    show_help
+else
+    # Telling closing condition
+    printf "Presione ESC para finalizar\n"
+    # Check that there is only one parameter
     if [ $# -eq 1 ]
     then
         case $1 in
@@ -17,4 +29,8 @@ printf "Presione ESC para finalizar\n"
        printf "El comando solo acepta un parámetro\nLas opciones disponibles actualmente son:\nalias\ncommands\n"
     fi
     return 0
+fi
 }
+
+# Call main function
+memo "$@"

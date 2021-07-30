@@ -40,3 +40,20 @@ do
        source "$f";
    fi
 done
+
+# Calling custom commands
+# shellcheck disable=1090
+# for f in "$HOME"/.shell_config/commands/*;
+# do
+#    if [ -f "$f" ]
+#    then
+#        source "$f";
+#    fi
+# done
+
+# Terraform settings
+complete -C /usr/bin/terraform terraform
+
+# Calling evn variables
+# shellcheck disable=1090
+source "$HOME"/.shell_config/env
