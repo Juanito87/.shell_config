@@ -24,16 +24,16 @@ source ~/.shell_config/prompt/prompt-dracula.sh
 # FZF
 # Auto-completion
 # shellcheck disable=SC1090
-[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$HOME"/.fzf/shell/completion.zsh 2> /dev/null
 # Key bindings
 # shellcheck disable=SC1090
-source "$HOME/.fzf/shell/key-bindings.zsh"
+source "$HOME"/.fzf/shell/key-bindings.zsh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
+#complete -o nospace -C /usr/bin/terraform terraform
 # Calling config files
 # shellcheck disable=1090
-for f in "$HOME/.shell_config/myalias/*";
+for f in "$HOME"/.shell_config/myalias/*;
 do
    if [ -f "$f" ]
    then
