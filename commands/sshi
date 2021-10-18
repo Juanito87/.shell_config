@@ -4,10 +4,12 @@
 # - Checks if tmux is present
 # - Attachs or connnects to tmux
 # - If tmux is not present, starts a normal shell
-# shellcheck disable=SC2034
-# host=$@
-# function sshi()
-# {
+
+function sshi()
+{
 /usr/bin/ssh "$@" -t /bin/sh "command -v tmux &>/dev/null || tmux new -A -s $(whoami) || $SHELL -l"
-# /usr/bin/ssh $host -t /bin/sh "command -v tmux &>/dev/null || tmux new -A -s $(whoami) || $SHELL -l"
-# }
+# /usr/bin/ssh $params -t /bin/sh "command -v tmux &>/dev/null || tmux new -A -s $(whoami) || $SHELL -l"
+}
+
+# Call main function
+sshi "$@"

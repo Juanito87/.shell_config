@@ -28,6 +28,7 @@ alias sudo='\sudo '
 # Setting Alias for enhanced commands
 alias ls='better_ls'
 alias history='better_history'
+alias ssh='sshi'
 
 # Setting Alias for git, to manage dotfiles in $HOME with autocomplete
 ## git use __git_main for autocomplete git subcommands are _git_subcomand
