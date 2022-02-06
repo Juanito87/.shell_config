@@ -14,7 +14,6 @@ fi
 # - Human readable
 # - Nicer sorting/behavior
 # - Avoid preexisting Alias prefixing \ to de command, just in case
-# - Piping to less for long commands, can navigate with vim keys
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -73,5 +72,10 @@ alias .5='cd ../../../..'
 alias .6='cd ../../../../..'
 
 # Python env
-alias a29p='source ~/ansible2.9-2.7/bin/activate && cd ~/Repo/CASA/solana/dep && git pull'
-alias a29d='source ~/ansible2.9-2.7/bin/activate && cd ~/Repo/CASA/solana/dev'
+alias a29p='source ~/.ansible2.9/bin/activate && cd ~/Documents/Repo/CASA/solana/dep && git pull'
+alias a29d='source ~/.ansible2.9/bin/activate && cd ~/Documents/Repo/CASA/solana/dev'
+alias a210='source ~/.ansible2.10/bin/activate && cd ~/Documents/Repo/EDU/Estandar && git pull'
+
+# Utils
+alias hatgen='PASS=$(openssl rand -hex 14) && echo $PASS && mkpasswd -m sha-256 $PASS'
+alias rmotd='run-parts /etc/update-motd.d/'
