@@ -74,3 +74,4 @@ complete -C /usr/bin/terraform terraform
 # Calling evn variables
 # shellcheck disable=1090
 source "$HOME"/.shell_config/env
+source /home/juanito/Downloads/alacritty/extra/completions/alacritty.bash
