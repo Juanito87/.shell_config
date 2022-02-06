@@ -22,7 +22,8 @@ POWERLINE_BASH_SELECT=1
 
 # Setting tmux to launch always on gui only or on wsl
 if [[ $DISPLAY ]] || [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; then
-    [[ -z "$TMUX" ]] && exec tmux
+    [[ -z "$TMUX" ]] && exec tmux;
+    run-parts /etc/update-motd.d
 fi
 # source ~/.shell_config/commands/innernet
 
