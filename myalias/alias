@@ -73,5 +73,5 @@ alias .5='cd ../../../..'
 alias .6='cd ../../../../..'
 
 # Python env
-alias a29p='source ~/ansible2.9-2.7/bin/activate && cd ~/Repo/CASA/solana/dep && git pull'
+alias a29p='source ~/ansible2.9/bin/activate && cd ~/Documents/triton'
 alias a29d='source ~/ansible2.9-2.7/bin/activate && cd ~/Repo/CASA/solana/dev'
