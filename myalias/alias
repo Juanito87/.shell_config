@@ -31,10 +31,10 @@ alias ssh='sshi'
 
 # Setting Alias for git, to manage dotfiles in $HOME with autocomplete
 ## git use __git_main for autocomplete git subcommands are _git_subcomand
-alias gitdot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias gitdotsm='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME submodule'
-alias gitdotsma='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME submodule add'
-alias gitdotsmu='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME submodule update --remote --merge'
+alias gitdot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias gitdotsm='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule'
+alias gitdotsma='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule add'
+alias gitdotsmu='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --remote --merge'
 
 # shellcheck disable=SC2009
 if [[ $(ps -p $$ | grep sh | awk '{print $(NF)}') = "$shell" ]]; then
