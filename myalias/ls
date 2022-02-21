@@ -69,7 +69,7 @@
 function better_ls()
 {
     # shopt -s extglob
-    local LS="/usr/bin/ls"
+    local LS=$(which ls)
     local TS="+%d-%m-%Y%t%R"
 
     ## IF NO ARGUMENTS PASSED -> run better ls version on current folder
