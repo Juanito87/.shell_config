@@ -22,12 +22,12 @@ alias dmesg='\dmesg --color=auto --reltime --human --nopager --decode'
 alias free='\free -mht'
 alias du='\du -h'
 alias df='\df -h'
-alias sudo='\sudo '
 
 # Setting Alias for enhanced commands
 alias ls='better_ls'
 alias history='better_history'
-alias ssh='sshi'
+alias ssh='better_ssh'
+alias sudo='better_sudo'
 
 # Setting Alias for git, to manage dotfiles in $HOME with autocomplete
 ## git use __git_main for autocomplete git subcommands are _git_subcomand
@@ -41,7 +41,6 @@ if [[ $(ps -p $$ | grep sh | awk '{print $(NF)}') = "$shell" ]]; then
     if [ -f "/usr/share/bash-completion/completions/git" ]; then
         # shellcheck disable=SC1091
         . /usr/share/bash-completion/completions/git
-        __git_complete sshdot __git_main
         __git_complete gitdot __git_main
         __git_complete gitdotsm _git_submodule
         __git_complete gitdotsma _git_submodule

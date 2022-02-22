@@ -25,8 +25,6 @@ if [[ $DISPLAY ]] || [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; the
     [[ -z "$TMUX" ]] && exec tmux;
     run-parts /etc/update-motd.d
 fi
-# source ~/.shell_config/commands/innernet
-
 
 #Enabling bash completion
 if ! shopt -oq posix; then
@@ -71,8 +69,8 @@ done
 # Terraform settings
 complete -C /usr/bin/terraform terraform
 
-# Calling evn variables
+# Calling env variables
 # shellcheck disable=1090
 source "$HOME"/.shell_config/env
 source "$HOME"/.shell_config/bash/alacritty.bash
- "$HOME/.cargo/env"
+source "$HOME/.cargo/env"

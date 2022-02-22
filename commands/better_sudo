@@ -2,7 +2,7 @@
 # Enabling autocomplete for the command
 # -c will indicate the commando to autocomplete
 # -f will indicate to not complete with filenames
-function Jsudo()
+function better_sudo()
 {
 if [ "$PS1" ]; then
     complete -cf sudo
