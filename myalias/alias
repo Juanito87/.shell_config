@@ -1,6 +1,6 @@
 #!/bin/bash
 ##==============================================================================
-##  Alias
+##  Alias general config
 ##==============================================================================
 # Enabling Alias expansion, to use them in vim
 shell="bash"
@@ -28,34 +28,6 @@ alias ls='better_ls'
 alias history='better_history'
 alias ssh='better_ssh'
 alias sudo='better_sudo'
-
-# Setting Alias for git, to manage dotfiles in $HOME with autocomplete
-## git use __git_main for autocomplete git subcommands are _git_subcomand
-alias gitdot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias gitdotsm='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule'
-alias gitdotsma='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule add'
-alias gitdotsmu='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --remote --merge'
-
-# shellcheck disable=SC2009
-if [[ $(ps -p $$ | grep sh | awk '{print $(NF)}') = "$shell" ]]; then
-    if [ -f "/usr/share/bash-completion/completions/git" ]; then
-        # shellcheck disable=SC1091
-        . /usr/share/bash-completion/completions/git
-        __git_complete gitdot __git_main
-        __git_complete gitdotsm _git_submodule
-        __git_complete gitdotsma _git_submodule
-        __git_complete gitdotsmu _git_submodule
-        __git_complete gitrdot __git_main
-        __git_complete gitrdotsm _git_submodule
-        __git_complete gitrdotsma _git_submodule
-        __git_complete gitrdotsmu _git_submodule
-   fi
-fi
-
-# Tmux Alias
-alias tls='tmux ls'
-alias tks='tmux kill-session -t'
-alias tkw='tmux kill-window -t'
 
 # Reload rc files local/remote
 alias brc='source ~/.bashrc'

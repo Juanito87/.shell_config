@@ -73,4 +73,6 @@ complete -C /usr/bin/terraform terraform
 # shellcheck disable=1090
 source "$HOME"/.shell_config/env
 source "$HOME"/.shell_config/bash/alacritty.bash
-source "$HOME/.cargo/env"
+if [[ $USER != root ]]; then
+    source "$HOME/.cargo/env"
+fi
