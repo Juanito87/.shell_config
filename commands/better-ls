@@ -122,3 +122,6 @@ function better_ls()
             --group-directories-first "$@";
     fi
 }
+
+# Call main function
+better_ls "$@"

@@ -64,7 +64,7 @@ function __promptline_venv {
     if test -z "$VIRTUAL_ENV" ; then
         echo ""
     else
-        echo $VIRTUAL_ENV
+        echo "$VIRTUAL_ENV"
     fi
     return 1
 }
@@ -80,7 +80,7 @@ git_symbol_dirty_unpulled=' ▽'
 git_symbol_dirty_unpushedunpulled=' ○'
 git_branch_symbol=" "
 
-    if ( which git > /dev/null 2>&1 ); then
+    if ( command -v git > /dev/null 2>&1 ); then
 
         ## CHECK IF IN A GIT REPOSITORY, OTHERWISE SKIP
         local branch=$(git branch 2> /dev/null |\

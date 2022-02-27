@@ -4,7 +4,8 @@
 # -f will indicate to not complete with filenames
 function better_sudo()
 {
-if [ "$PS1" ]; then
-    complete -cf sudo
-fi
+complete -cf sudo "$@"
 }
+
+# Call main function
+better_sudo "$@"

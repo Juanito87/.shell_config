@@ -33,7 +33,6 @@ else
                # Make timestamp to avoid overwriting or promtpting
                time=$(date +%d-%m-%y_%H:%M)
                # Copy and preserve permitions
-               # shellcheck disable=2225
                cp -p "$param" "bak_$time-$param" >&2
                if [ $r -eq 1 ]
                then

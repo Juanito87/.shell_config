@@ -11,11 +11,11 @@ shopt -s checkwinsize
 shopt -s globstar
 
 ## Setting powerline daemon to improve speed
-powerline-daemon -q
-# shellcheck disable=SC2034
-POWERLINE_BASH_CONTINUATION=1
-# shellcheck disable=SC2034
-POWERLINE_BASH_SELECT=1
+# powerline-daemon -q
+# # shellcheck disable=SC2034
+# POWERLINE_BASH_CONTINUATION=1
+# # shellcheck disable=SC2034
+# POWERLINE_BASH_SELECT=1
 
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -50,11 +50,12 @@ source "$HOME"/.tmux/completion/completions/tmux
 
 # Enabling prompt
 # shellcheck disable=SC1091 disable=1090
-if [[ $USER == root ]]; then
-    source "$HOME"/.shell_config/prompt/prompt-dracula.sh
-else
-    source "$HOME"/.shell_config/prompt/prompt-gruvbox.sh
-fi
+# if [[ $USER == root ]]; then
+#     source "$HOME"/.shell_config/prompt/prompt-dracula.sh
+# else
+#     source "$HOME"/.shell_config/prompt/prompt-gruvbox.sh
+# fi
+eval "$(starship init bash)"
 
 # Calling config files
 # shellcheck disable=1090

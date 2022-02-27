@@ -31,5 +31,8 @@ export PATH=~/go/bin:$PATH
 export EDU_SSH_USER0="soporte"
 export EDU_SSH_USER1="root"
 
+# Starship
+export STARSHIP_CONFIG=~/.shell_config/starship.toml
+
 # Python env
 # export

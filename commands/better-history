@@ -1,4 +1,6 @@
-betterHistory()
+#!/bin/bash
+# Formating options to call history command in a pretier way.
+better_history()
 {
     # Local are color codes, can be changed, for more info
     #http://es.tldp.org/COMO-INSFLUG/COMOs/Bash-Prompt-Como/Bash-Prompt-Como-5.html
@@ -12,4 +14,6 @@ betterHistory()
     export HISTFILESIZE=50000 # size of the file holding history for future sessions.
     export HISTCONTROL=ignoreboth # don't put duplicate lines or lines starting with space in the history.
 }
-betterHistory
+
+# call main function
+better_history "$@"

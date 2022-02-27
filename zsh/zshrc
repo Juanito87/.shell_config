@@ -19,7 +19,8 @@ setopt kshglob
 unsetopt nomatch
 
 # Setting prompt
-source ~/.shell_config/prompt/prompt-dracula.sh
+# source ~/.shell_config/prompt/prompt-dracula.sh
+eval "$(starship init zsh)"
 
 # FZF
 # Auto-completion

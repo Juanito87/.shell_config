@@ -1,0 +1,36 @@
+add_newline = true
+
+format = """
+[┌───────────────────>](bold green)$memory_usage$battery$username$hostname$directory$shlvl
+[│](bold green)$git_branch$git_commit$git_state$git_status$docker_context$container$golang$helm$nodejs$python$ruby$rust$terraform$sudo$cmd_duration$line_break$status$character$package
+[└─>](bold green)"""
+
+
+
+
+[directory]
+truncation_length = 10
+
+[git_commit]
+commit_hash_length = 8
+only_detached = false
+
+[git_status]
+ahead = '▲'
+behind = '▼'
+conflicted = '✘'
+deleted = 'x.X'
+
+[python]
+python_binary = "python3"
+
+[status]
+map_symbol = true
+pipestatus = true
+recognize_signal_code = true
+
+[memory_usage]
+threshold = 30
+
+[battery.display]
+threshold = 100
