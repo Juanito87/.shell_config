@@ -1,3 +1,4 @@
+#!/bin/bash
 ##  +-----------------------------------+-----------------------------------+
 ##  |                                                                       |
 ##  | Copyright (c) 2018-2020, Andres Gongora <mail@andresgongora.com>.     |
@@ -61,7 +62,7 @@
 ## --time-style date/time format used full-iso, long-iso, iso, locale, or +FORMAT.FORMAT is interpreted like in date(1)
 ## --group-directories-first put folders then files
 ## To modify the time styel use the TS variable
-## Current date format day of the month-month-year %t (tab) time(24hs format
+## Current date format day of the month-month-year %t (tab) time(24hs format)
 ##==============================================================================
 ##  BETTER LS
 ##==============================================================================
@@ -69,7 +70,7 @@
 function better_ls()
 {
     # shopt -s extglob
-    local LS=$(which ls)
+    local LS=$(command -v ls)
     local TS="+%d-%m-%Y%t%R"
 
     ## IF NO ARGUMENTS PASSED -> run better ls version on current folder
@@ -106,14 +107,14 @@ function better_ls()
     ## Move to target dir
     ## Call recursively with no arguments
     ## Restore dir
-    elif [ $# -eq 1 -a -d "$1" ]; then
+    elif [ $# -eq 1 ] && [ -d "$1" ]; then
         local current_pwd="$PWD"
-        'cd' "$1/"
+        'cd' "$1/" || exit
         better_ls
-        'cd' "$current_pwd"
+        'cd' "$current_pwd" || exit
 
     ## IF ARGUMENT IS A SINGLE FILE
-    elif [ $# -eq 1 -a -f "$1" ]; then
+    elif [ $# -eq 1 ] && [ -f "$1" ]; then
         $LS -l --color=auto --human-readable --time-style=$TS "$1"
 
     ## IF ARGUMENTS PASSED -> run standard ls but with some tweaks (eg: colors)
