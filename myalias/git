@@ -3,9 +3,10 @@
 ##  Git Alias
 ##==============================================================================
 
+shell="bash"
 # Setting Alias for git, to manage dotfiles in $HOME with autocomplete
 ## git use __git_main for autocomplete git subcommands are _git_subcomand
-alias gitdot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias gitdot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias gitdotsm='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule'
 alias gitdotsma='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule add'
 alias gitdotsmu='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --remote --merge'
