@@ -33,7 +33,6 @@ map_symbol = true
 pipestatus = true
 recognize_signal_code = true
 disabled = false
-pipestatus = true
 
 [memory_usage]
 threshold = 10
