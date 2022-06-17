@@ -44,6 +44,7 @@ alias .6='cd ../../../../..'
 
 # Python env
 alias a29='source ~/.ansible2.9/bin/activate && cd ~/triton'
+alias a27='deactivate && source ~/venv/bin/activate'
 alias a210='source ~/.ansible2.10/bin/activate && cd ~/edu'
 
 # Utils
