@@ -30,24 +30,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# FZF
 # Auto-completion
 # shellcheck disable=SC1091 disable=1090
 [[ $- == *i* ]] && source "$HOME"/.fzf/shell/completion.bash 2> /dev/null
 # Key bindings
-# shellcheck disable=SC1091 disable=1090
+# shellcheck disable=SC1090 disable=SC1091
 source "$HOME"/.fzf/shell/key-bindings.bash
 
 # Enabling tmux completion
 # shellcheck disable=SC1091 disable=1090
 source "$HOME"/.tmux/completion/completions/tmux
 
-# Enabling prompt
-# shellcheck disable=SC1091 disable=1090
-# if [[ $USER == root ]]; then
-#     source "$HOME"/.shell_config/prompt/prompt-dracula.sh
-# else
-#     source "$HOME"/.shell_config/prompt/prompt-gruvbox.sh
-# fi
 eval "$(starship init bash)"
 
 # Calling config files
