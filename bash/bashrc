@@ -10,18 +10,11 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
 
-## Setting powerline daemon to improve speed
-# powerline-daemon -q
-# # shellcheck disable=SC2034
-# POWERLINE_BASH_CONTINUATION=1
-# # shellcheck disable=SC2034
-# POWERLINE_BASH_SELECT=1
-
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Setting tmux to launch always on gui only or on wsl
-if [[ $DISPLAY ]] || [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; then
+if [[ $- == *i* ]]; then
     [[ -z "$TMUX" ]] && exec tmux;
     run-parts /etc/update-motd.d
 fi
@@ -37,24 +30,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# FZF
 # Auto-completion
-# shellcheck disable=SC1090
+# shellcheck disable=SC1090 disable=SC1091
 [[ $- == *i* ]] && source "$HOME"/.fzf/shell/completion.bash 2> /dev/null
 # Key bindings
-# shellcheck disable=SC1090
+# shellcheck disable=SC1090 disable=SC1091
 source "$HOME"/.fzf/shell/key-bindings.bash
 
 # Enabling tmux completion
 # shellcheck disable=SC1091 disable=1090
 source "$HOME"/.tmux/completion/completions/tmux
 
-# Enabling prompt
-# shellcheck disable=SC1091 disable=1090
-# if [[ $USER == root ]]; then
-#     source "$HOME"/.shell_config/prompt/prompt-dracula.sh
-# else
-#     source "$HOME"/.shell_config/prompt/prompt-gruvbox.sh
-# fi
 eval "$(starship init bash)"
 
 # Calling config files
@@ -71,9 +58,11 @@ done
 complete -C /usr/bin/terraform terraform
 
 # Calling env variables
-# shellcheck disable=1090
+# shellcheck disable=SC1090 disable=SC1091
 source "$HOME"/.shell_config/env
+# shellcheck disable=1091
 source "$HOME"/.shell_config/bash/alacritty.bash
 if [[ $USER != root ]]; then
+# shellcheck disable=1091
     source "$HOME/.cargo/env"
 fi
