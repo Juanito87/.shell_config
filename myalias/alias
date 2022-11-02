@@ -43,9 +43,9 @@ alias .5='cd ../../../..'
 alias .6='cd ../../../../..'
 
 # Python env
-alias a29='source ~/.ansible2.9/bin/activate && cd ~/triton'
-alias a27='deactivate && source ~/venv/bin/activate'
-alias a210='source ~/.ansible2.10/bin/activate && cd ~/edu'
+alias a29='source ~/.ansible2.9/bin/activate && cd ~/repo/triton'
+alias a27='deactivate 2>/dev/null && source ~/.ansible2.9-2.7/bin/activate'
+alias a210='source ~/.ansible2.10/bin/activate && cd ~/repo/edu'
 
 # Utils
 alias hatgen='PASS=$(openssl rand -hex 14) && echo $PASS && mkpasswd -m sha-256 $PASS'
