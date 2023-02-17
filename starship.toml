@@ -2,11 +2,10 @@ add_newline = true
 
 format = """
 [┌───────────────────>](bold green)$memory_usage$battery$username$hostname$directory$shlvl
-[│](bold green)$git_branch$git_commit$git_state$git_status$docker_context$container$golang$helm$nodejs$python$ruby$rust$terraform$sudo$cmd_duration$line_break$status$character$package
+[│](bold green)$git_branch$git_commit$git_state$git_status$docker_context$container$golang$helm$lua$nodejs$python$ruby$rust$terraform$sudo$cmd_duration$line_break$status$character$package
 [└─>](bold green)"""
 
-
-
+command_timeout = 3000
 
 [directory]
 truncation_length = 10
@@ -39,3 +38,8 @@ threshold = 10
 
 [battery.display]
 threshold = 100
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = true
+show_notifications = true
