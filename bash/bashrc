@@ -68,3 +68,7 @@ if [[ $USER != root ]]; then
 fi
 # Saving all commands to history, to have all tmux panes history.
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# Making bash autocomplete better
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'

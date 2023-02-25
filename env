@@ -24,7 +24,7 @@ export TF_LOG=TRACE
 export TF_LOG_PATH="terraform.txt"
 
 # GO PATH
-export GOPATH=$HOME/go
+export GOPATH=$HOME/go:/home/juanito/repo/juanito87/platzi/go
 export PATH=~/go/bin:$PATH
 
 # SSH users

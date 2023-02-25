@@ -21,7 +21,7 @@ else
     then
         case $1 in
            # Compara el valor y asigna el comando a mostrar para el help, agregar un case a futuro
-           "alias") grep "alias " "$HOME"/.shell_config/alias | fzf ;;
+           "alias") grep -R "alias " "$HOME"/.shell_config/myalias/ | awk -F":" '{print $2}' | fzf;;
            "commands") < "$HOME"/.shell_config/commands/resumen fzf ;;
            *) printf "Las opciones disponibles actualmente son \nalias\ncommands\n" ;;
         esac
