@@ -51,3 +51,5 @@ alias a210='source ~/.ansible2.10/bin/activate && cd ~/repo/edu'
 alias hatgen='PASS=$(openssl rand -hex 14) && echo $PASS && mkpasswd -m sha-256 $PASS'
 alias rmotd='run-parts /etc/update-motd.d/'
 alias myip="curl http://ipecho.net/plain; echo"
+alias fixbt="sudo rmmod btusb && sudo modprobe btusb"
+alias nvdot="nvim ~/.config/nvim/init.lua"
