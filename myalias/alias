@@ -43,7 +43,7 @@ alias .5='cd ../../../..'
 alias .6='cd ../../../../..'
 
 # Python env
-alias a29='source ~/.ansible2.9/bin/activate && cd ~/repo/triton'
+alias a29='source ~/.ansible2.9/bin/activate && cd ~/repo/triton && source ./rpcpool/rpcpool-main/vault-env.sh'
 alias a27='deactivate 2>/dev/null && source ~/.ansible2.9-2.7/bin/activate'
 alias a210='source ~/.ansible2.10/bin/activate && cd ~/repo/edu'
 
@@ -52,4 +52,4 @@ alias hatgen='PASS=$(openssl rand -hex 14) && echo $PASS && mkpasswd -m sha-256 
 alias rmotd='run-parts /etc/update-motd.d/'
 alias myip="curl http://ipecho.net/plain; echo"
 alias fixbt="sudo rmmod btusb && sudo modprobe btusb"
-alias nvdot="nvim ~/.config/nvim/init.lua"
+alias nvdot="cd ~/.config/nvim && nvim ."
