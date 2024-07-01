@@ -14,7 +14,7 @@ fi
 # - Human readable
 # - Nicer sorting/behavior
 # - Avoid preexisting Alias prefixing \ to de command, just in case
-alias grep='grep --color=auto'
+alias grep='rg --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tree='\tree --dirsfirst -C'
@@ -27,6 +27,7 @@ alias df='\df -h'
 alias ls='better-ls'
 alias history='better-history'
 alias ssh='better-ssh'
+alias vsh='better-vsh'
 # alias sudo='better-sudo'
 
 # Reload rc files local/remote
@@ -53,3 +54,8 @@ alias rmotd='run-parts /etc/update-motd.d/'
 alias myip="curl http://ipecho.net/plain; echo"
 alias fixbt="sudo rmmod btusb && sudo modprobe btusb"
 alias nvdot="cd ~/.config/nvim && nvim ."
+
+# Github cli
+alias gc='gh copilot'
+alias gcs='gh copilot suggest'
+alias gce='gh copilot explain'
