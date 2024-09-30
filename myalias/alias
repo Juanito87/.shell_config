@@ -44,8 +44,9 @@ alias .5='cd ../../../..'
 alias .6='cd ../../../../..'
 
 # Python env
-alias a29='source ~/.ansible2.9/bin/activate && cd ~/repo/triton && source ./rpcpool/rpcpool-main/vault-env.sh'
-alias a27='deactivate 2>/dev/null && source ~/.ansible2.9-2.7/bin/activate'
+# alias a29='source ~/.ansible2.9/bin/activate && cd ~/repo/triton && source ./rpcpool/main/vault-env.sh'
+alias a9='source ~/.ansible9/bin/activate && cd ~/repo/triton && source ./rpcpool/main/vault-env.sh'
+alias a29='deactivate 2>/dev/null && source ~/.ansible2.9/bin/activate'
 alias a210='source ~/.ansible2.10/bin/activate && cd ~/repo/edu'
 
 # Utils
