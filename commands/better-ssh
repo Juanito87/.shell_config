@@ -11,7 +11,7 @@ function better_ssh()
 if [[ $triton -eq 1 ]];
 then
     param="${@:2}"
-    DIRNAME=/home/juanito/repo/triton/rpcpool/rpcpool-main
+    DIRNAME=/home/juanito/repo/triton/rpcpool/main
     source ${DIRNAME}/vault-env.sh
     command -v vault >/dev/null 2>&1 || { echo "Vault is not in your path. Please install or add vault location to \$PATH.  Aborting." >&2; exit 1; }
     VAULT_SSH_USERNAME=${VAULT_SSH_USERNAME:="$VAULT_USERNAME"}
