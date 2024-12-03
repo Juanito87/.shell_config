@@ -34,5 +34,8 @@ export EDU_SSH_USER1="root"
 # Starship
 export STARSHIP_CONFIG=~/.shell_config/starship.toml
 
+export VAULT_USERNAME="juanfernandez"
+export VAULT_SSH_USERNAME="juanito"
+
 # Python env
 # export
